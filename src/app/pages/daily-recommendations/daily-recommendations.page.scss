@@ -97,3 +97,17 @@ ion-grid {
         }
     }
 }
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0, 0, 0, 0 rgba(44, 103, 255, 0.4);
+    }
+
+    70% {
+        box-shadow: 0, 0, 0, 0 rgba(44, 103, 255, 0);
+    }
+
+    100% {
+        box-shadow: 0, 0, 0, 0 rgba(44, 103, 255, 0);
+    }
+}

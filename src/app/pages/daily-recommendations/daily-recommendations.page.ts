@@ -5,8 +5,9 @@ import {
   QueryList,
   ViewChildren,
   NgZone,
+  Renderer2,
 } from '@angular/core';
-import { IonCard, GestureController, Platform } from '@ionic/angular';
+import { IonCard, GestureController, Platform, AnimationController } from '@ionic/angular';
 import { StorageService } from 'src/app/services/storage.service';
 import { ToastService } from 'src/app/services/toast.service';
 
@@ -23,11 +24,15 @@ export class DailyRecommendationsPage implements OnInit {
   public gestureY: any;
   public profiles = [];
 
+  private unlistener: () => void;
+
   constructor(
     private storage: StorageService,
     private gestureCtrl: GestureController,
     private toast: ToastService,
     private platform: Platform,
+    private renderer2: Renderer2,
+    private animationCtrl: AnimationController
   ) { }
 
   async ngOnInit() {
@@ -51,6 +56,7 @@ export class DailyRecommendationsPage implements OnInit {
           console.log(ev);
         },
         onMove: (ev) => {
+          console.log(ev.deltaX);
           card.nativeElement.style.transform = `translateX(${ev.deltaX}px) rotate(${ev.deltaX / 10}deg)`;
         },
         onEnd: (ev) => {
@@ -82,6 +88,7 @@ export class DailyRecommendationsPage implements OnInit {
           console.log(ev);
         },
         onMove: (ev) => {
+          ;
           card.nativeElement.style.transform = `translateY(${ev.deltaY}px) rotate(${ev.deltaY / 10}deg)`;
         },
         onEnd: (ev) => {
@@ -98,6 +105,38 @@ export class DailyRecommendationsPage implements OnInit {
       });
       this.gestureY.enable(true);
       this.gestureX.enable(true);
+
+      this.unlistener = this.renderer2.listen(card.nativeElement.querySelector('.shortListed'), 'click', ev => {
+        const animation = this.animationCtrl
+          .create()
+          .addElement(card.nativeElement)
+          .duration(1500)
+          .fromTo('transform', `rotate(50deg)`, `translateY(-${+this.platform.width() * 2}px)`);
+        animation.play();
+        this.shortListed();
+      });
+
+      this.unlistener = this.renderer2.listen(card.nativeElement.querySelector('.profileStatusTrue'), 'click', ev => {
+        const animation = this.animationCtrl
+          .create()
+          .addElement(card.nativeElement)
+          .duration(1500)
+          .from('transform', `rotate(40deg)`)
+          .to('transform', `translateX(${+this.platform.width() * 2}px)`);
+        animation.play();
+        this.profileStatus(true);
+      });
+
+      this.unlistener = this.renderer2.listen(card.nativeElement.querySelector('.profileStatusFalse'), 'click', ev => {
+        const animation = this.animationCtrl
+          .create()
+          .addElement(card.nativeElement)
+          .duration(1500)
+          .from('transform', `rotate(40deg)`)
+          .to('transform', `translateX(-${+this.platform.width() * 2}px)`);
+        animation.play();
+        this.profileStatus(false);
+      });
     });
   }
 
