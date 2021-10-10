@@ -6,12 +6,26 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
+import { ToastService } from './services/toast.service';
+import { StorageService } from './services/storage.service';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [
+    AppComponent
+  ],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    IonicModule.forRoot(),
+    AppRoutingModule,
+  ],
+  providers: [
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    ToastService,
+    StorageService
+  ],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

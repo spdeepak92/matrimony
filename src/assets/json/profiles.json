@@ -1,0 +1,67 @@
+[
+    {
+        "id": "M982545",
+        "name": "Priyanka",
+        "age": 27,
+        "height": "5 ft 2 in",
+        "language": "Tamil",
+        "caste": "Nair",
+        "work": "MBBS Doctor",
+        "location": "Chennai",
+        "state": "TamilNadu",
+        "nationality": "India",
+        "image": "./assets/images/priyanka.jpg"
+    },
+    {
+        "id": "M982546",
+        "name": "Thanuja",
+        "age": 27,
+        "height": "5 ft 7 in",
+        "language": "Tamil",
+        "caste": "Nair",
+        "work": "MBBS Doctor",
+        "location": "Chennai",
+        "state": "TamilNadu",
+        "nationality": "India",
+        "image": "./assets/images/thanuja.jpg"
+    },
+    {
+        "id": "M982547",
+        "name": "Janaki",
+        "age": 27,
+        "height": "5 ft 5 in",
+        "language": "Tamil",
+        "caste": "Nair",
+        "work": "MBBS Doctor",
+        "location": "Chennai",
+        "state": "TamilNadu",
+        "nationality": "India",
+        "image": "./assets/images/janaki.jpg"
+    },
+    {
+        "id": "M982548",
+        "name": "Madhu",
+        "age": 27,
+        "height": "5 ft 3 in",
+        "language": "Tamil",
+        "caste": "Nair",
+        "work": "MBBS Doctor",
+        "location": "Chennai",
+        "state": "TamilNadu",
+        "nationality": "India",
+        "image": "./assets/images/madhu.jpg"
+    },
+    {
+        "id": "M982549",
+        "name": "Lakshmi",
+        "age": 27,
+        "height": "5 ft 2 in",
+        "language": "Tamil",
+        "caste": "Nair",
+        "work": "MBBS Doctor",
+        "location": "Chennai",
+        "state": "TamilNadu",
+        "nationality": "India",
+        "image": "./assets/images/lakshmi.jpg"
+    }
+]
